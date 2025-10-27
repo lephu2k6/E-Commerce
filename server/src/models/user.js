@@ -5,6 +5,8 @@ const UserSchema = new mongoose.Schema({
     name : {type : String , require :true } , 
     email : {type : String , require : true , unique : true },
     password : {type : String , require : true} ,
+    telegramId: { type: String },
+    isVerified: { type: Boolean, default: false },
     phone : String ,
     role : {type : String , enum : ['customer' , 'seller' , 'admin'] , default : 'customer'},
     createdAt: { type: Date, default: Date.now }

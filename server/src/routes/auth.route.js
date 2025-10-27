@@ -1,10 +1,12 @@
 import express from "express" 
 const router = express.Router()
 // 
-import { signup } from '../controllers/auth.controller.js'
+import { signup, verifyOTP , login } from "../controllers/auth.controller.js";
 
 
 router.post ('/signup' , signup)
+router.post('/verify-otp' , verifyOTP)
+router.post('/login', login)
 
 
 
