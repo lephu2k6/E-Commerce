@@ -1,0 +1,298 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "E-commerce",
+      "version": "1.0.0",
+      "description": ""
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000"
+      },
+      {
+        "url": ""
+      }
+    ],
+    "paths": {
+      "/api/auth/signup": {
+        "post": {
+          "summary": "SignUp",
+          "tags": [
+            "AUTH"
+          ],
+          "responses": {},
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "format": "email"
+                    },
+                    "password": {
+                      "type": "string",
+                      "format": "color"
+                    },
+                    "telegramId": {
+                      "type": "string",
+                      "format": "utc-millisec"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/auth/login": {
+        "post": {
+          "summary": "Login",
+          "tags": [
+            "AUTH"
+          ],
+          "responses": {},
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "format": "email"
+                    },
+                    "password": {
+                      "type": "string",
+                      "format": "color"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/auth/verify-otp": {
+        "post": {
+          "summary": "VerifyOtp",
+          "tags": [
+            "AUTH"
+          ],
+          "responses": {},
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "userId": {
+                      "type": "string"
+                    },
+                    "otp": {
+                      "type": "string",
+                      "format": "color"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/product/": {
+        "post": {
+          "summary": "createProduct",
+          "tags": [
+            "PRODUCT"
+          ],
+          "responses": {},
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "brand": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "integer"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "image": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "images": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "stock": {
+                      "type": "integer"
+                    },
+                    "category": {
+                      "type": "string"
+                    },
+                    "isFeature": {
+                      "type": "boolean"
+                    },
+                    "rating": {
+                      "type": "number"
+                    },
+                    "richDescription": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "summary": "getAllProduct",
+          "tags": [
+            "PRODUCT"
+          ],
+          "responses": {}
+        }
+      },
+      "/api/product/691364278a2bec8043aaa7ce": {
+        "get": {
+          "summary": "getProductId",
+          "tags": [
+            "PRODUCT"
+          ],
+          "responses": {}
+        }
+      },
+      "/api/category/": {
+        "post": {
+          "summary": "CreateCategory",
+          "tags": [
+            "CATEGORY"
+          ],
+          "responses": {},
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "icon": {
+                      "type": "string"
+                    },
+                    "color": {
+                      "type": "string",
+                      "format": "color"
+                    },
+                    "image": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "summary": "GetCategory",
+          "tags": [
+            "CATEGORY"
+          ],
+          "responses": {}
+        }
+      },
+      "/api/category/691373098189a5f006450aeb": {
+        "delete": {
+          "summary": "DelCategory",
+          "tags": [
+            "CATEGORY"
+          ],
+          "responses": {}
+        }
+      },
+      "/api/orders/": {
+        "post": {
+          "summary": "CreateOrder",
+          "tags": [
+            "ORDER"
+          ],
+          "responses": {},
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "orderItems": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "product": {
+                            "type": "string"
+                          },
+                          "quantity": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "shippingAddress1": {
+                      "type": "string"
+                    },
+                    "city": {
+                      "type": "string"
+                    },
+                    "zip": {
+                      "type": "string",
+                      "format": "utc-millisec"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "phone": {
+                      "type": "string",
+                      "format": "utc-millisec"
+                    },
+                    "user": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "summary": "GetAllOrder",
+          "tags": [
+            "ORDER"
+          ],
+          "responses": {}
+        }
+      },
+      "/": {
+        "get": {
+          "summary": "GetOrderId",
+          "tags": [
+            "ORDER"
+          ],
+          "responses": {}
+        }
+      }
+    }
+  }

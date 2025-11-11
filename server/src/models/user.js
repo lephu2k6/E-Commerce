@@ -8,7 +8,7 @@ const UserSchema = new mongoose.Schema({
     telegramId: { type: String },
     isVerified: { type: Boolean, default: false },
     phone : String ,
-    role : {type : String , enum : ['customer' , 'seller' , 'admin'] , default : 'customer'},
+    role : {type : String , enum : ['customer' , 'admin'] , default : 'customer'},
     createdAt: { type: Date, default: Date.now }
 
 })

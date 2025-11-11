@@ -82,7 +82,7 @@ export const login = async (req , res) => {
           message: "Sai mật khẩu"
         });
       }
-      const token = jwt.sign ({userId : user._id , email : user.email }, process.env.JWT_SECRET , {expiresIn : '1h'})
+      const token = jwt.sign ({userId : user._id , email : user.email }, process.env.JWT_SECRET , {expiresIn : '24h'})
       res.status(200).json({
         success: true,
         message: "Đăng nhập thành công!",

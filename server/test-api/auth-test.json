@@ -1,0 +1,172 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "E-commerce",
+      "version": "1.0.0",
+      "description": ""
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000"
+      },
+      {
+        "url": ""
+      }
+    ],
+    "paths": {
+      "/api/auth/signup": {
+        "post": {
+          "summary": "SignUp",
+          "tags": [
+            "AUTH"
+          ],
+          "responses": {},
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "format": "email"
+                    },
+                    "password": {
+                      "type": "string",
+                      "format": "color"
+                    },
+                    "telegramId": {
+                      "type": "string",
+                      "format": "utc-millisec"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/auth/login": {
+        "post": {
+          "summary": "Login",
+          "tags": [
+            "AUTH"
+          ],
+          "responses": {},
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "format": "email"
+                    },
+                    "password": {
+                      "type": "string",
+                      "format": "color"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/auth/verify-otp": {
+        "post": {
+          "summary": "VerifyOtp",
+          "tags": [
+            "AUTH"
+          ],
+          "responses": {},
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "userId": {
+                      "type": "string"
+                    },
+                    "otp": {
+                      "type": "string",
+                      "format": "color"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/product/": {
+        "post": {
+          "summary": "createProduct",
+          "tags": [
+            "PRODUCT"
+          ],
+          "responses": {},
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "brand": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "integer"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "image": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "images": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "stock": {
+                      "type": "integer"
+                    },
+                    "category": {
+                      "type": "string"
+                    },
+                    "isFeature": {
+                      "type": "boolean"
+                    },
+                    "rating": {
+                      "type": "number"
+                    },
+                    "richDescription": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/": {
+        "get": {
+          "summary": "New Request",
+          "tags": [
+            "PRODUCT"
+          ],
+          "responses": {}
+        }
+      }
+    }
+  }
